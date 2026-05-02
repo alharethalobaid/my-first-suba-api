@@ -1,22 +1,41 @@
-import { createResource, For, Suspense } from "solid-js";
+import { createResource, createSignal, For, Suspense } from "solid-js";
 import New from "./New";
 
 export default function News() {
-const url = "https://apiqsasmstiryuwcyemk.supabase.co/rest/v1/news"
+  const [limit , setlimit] = createSignal(0)
+  const [offset , setOffset] = createSignal(0)
+
+const url = "https://apiqsasmstiryuwcyemk.supabase.co/rest/v1/news?"
 const options = {
 method: "GET",
 headers:{
 apikey : "sb_publishable_7hlyHenDUcmecwApd4hjFg_E3UhudBj"
 }
 }
-
- const [data] = createResource(async()=>{
-  const data = await fetch(url,options);
+const filter = ()=>"limit="+limit()+"&offset="+offset();
+ const [data] = createResource(filter,async()=>{
+  const data = await fetch(url+filter(),options);
 return  await data.json();
  })
  
+ function updateLimit(e){
+  setlimit(e.target.value)
+}
+
+function updateOffset(e){
+ setOffset(e.target.value)
+}
+
   return (
    <>
+      <div>
+     limit:
+     <input value ={limit()} onInput={updateLimit} class="input border-2 border-black" type="number" />
+   </div>
+   <div>
+     Offset:
+     <input value ={offset()} onInput={updateOffset} class="input border-2 border-black" type="number" />
+   </div>
    <Suspense fallback={<><span class="loading loading-ball loading-xs"></span>
 <span class="loading loading-ball loading-sm"></span>
 <span class="loading loading-ball loading-md"></span>
