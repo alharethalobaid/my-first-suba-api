@@ -17,11 +17,11 @@ export default function Movie(props){
     <div class="card-body">
       <h2 class="card-title">{props.item.title}</h2>
       <Switch>
-      <Match when={props.item.year > props.myear}>
+      <Match when={props.item.year < props.myear}>
               <p style={{ color: "red" }}>{props.item.year}</p>
             </Match>
-            <Match when={props.item.year <= props.myear}>
-              <p>{props.item.year}</p>
+            <Match when={props.item.year >= props.myear}>
+              <p style={{ color: "green" }}>{props.item.year}</p>
             </Match>
           </Switch>
 
