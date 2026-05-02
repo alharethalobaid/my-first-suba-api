@@ -2,6 +2,7 @@ export default function Food(props){
 
   return(
     <>
+    <a href={props.item.link}>
   <div class="card bg-base-100 w-96 shadow-sm">
     <figure>
       <img
@@ -15,7 +16,7 @@ export default function Food(props){
       </div>
     </div>
   </div>
-  
+  </a>
   
     
           <br/>
