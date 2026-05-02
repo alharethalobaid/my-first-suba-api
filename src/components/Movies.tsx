@@ -4,7 +4,7 @@ import Movie from "./Movie";
 export default function Movies() {
   const [limit , setlimit] = createSignal(0)
   const [offset , setOffset] = createSignal(0)
-
+  const [myear, setMyear] = createSignal(2000)
 const url = "https://apiqsasmstiryuwcyemk.supabase.co/rest/v1/movie?"
 const options = {
 method: "GET",
@@ -26,6 +26,7 @@ function updateOffset(e){
  setOffset(e.target.value)
 }
 
+
   return (
    <>
      <div>
@@ -36,6 +37,10 @@ function updateOffset(e){
      Offset:
      <input value ={offset()} onInput={updateOffset} class="input border-2 border-black" type="number" />
    </div>
+   <div>
+     year:
+     <input value={myear()} onInput={(e) => setMyear(Number(e.target.value))} class="input border-2 border-black" type="number" />
+   </div>
    <Suspense fallback={<><span class="loading loading-ball loading-xs"></span>
 <span class="loading loading-ball loading-sm"></span>
 <span class="loading loading-ball loading-md"></span>
@@ -44,7 +49,7 @@ function updateOffset(e){
    <For each={data()}>
      {(item,index)=>
      <>
-        <Movie item= {item}/>  
+        <Movie item={item} myear={myear()} />  
      </>
      }
      </For>
