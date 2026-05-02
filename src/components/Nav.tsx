@@ -47,7 +47,7 @@ export default function Nav() {
             inactiveClass="border-primary-content/70 hover:border-b-2"
             activeClass="border-primary-content/70 border-b-2"
           >
-            P1
+            Cars
           </A>
         </li>
 
@@ -58,7 +58,7 @@ export default function Nav() {
             inactiveClass="border-primary-content/70 hover:border-b-2"
             activeClass="border-primary-content/70 border-b-2"
           >
-            P2
+            Foods
           </A>
         </li>
 
@@ -69,7 +69,7 @@ export default function Nav() {
             inactiveClass="border-primary-content/70 hover:border-b-2"
             activeClass="border-primary-content/70 border-b-2"
           >
-            P3
+            News
           </A>
         </li>
 
@@ -80,7 +80,7 @@ export default function Nav() {
             inactiveClass="border-primary-content/70 hover:border-b-2"
             activeClass="border-primary-content/70 border-b-2"
           >
-            P4
+            Movies
           </A>
         </li>
 
