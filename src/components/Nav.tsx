@@ -58,7 +58,7 @@ export default function Nav() {
             inactiveClass="border-primary-content/70 hover:border-b-2"
             activeClass="border-primary-content/70 border-b-2"
           >
-            Foods
+            Food
           </A>
         </li>
 
